@@ -7,15 +7,16 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: python3.6
+  runtime: python3.9
 
 plugins:
   - serverless-python-requirements
-  - serverless-offline
+  # - serverless-offline
+package:
+  exclude:
+    - node_modules/**
+    - venv/**
 
-custom:
-    pythonRequirements:
-        dockerizePip: true
 
 functions:
   event_get:
