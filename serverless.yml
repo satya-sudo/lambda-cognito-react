@@ -1,0 +1,67 @@
+# org: satyamshreewe45
+# app: congito-google
+service: congito-google
+frameworkVersion: '3'
+
+
+
+provider:
+  name: aws
+  runtime: python3.6
+
+plugins:
+  - serverless-python-requirements
+  - serverless-offline
+
+custom:
+    pythonRequirements:
+        dockerizePip: true
+
+functions:
+  event_get:
+    handler: handler.get_events
+    events:
+      - httpApi:
+          path: /get/events
+          method: get
+          # cors:
+          #   origins:
+          #     - http://localhost:3000
+          #     - http://localhost:3001
+    
+  event_create:
+    handler: handler.post_event
+    events:
+      - httpApi:
+          path: /post/events
+          method: post
+          # cors:
+          #   origins:
+          #     - http://localhost:3000
+          #     - http://localhost:3001
+  
+  event_attend:
+    handler: handler.attend_event
+    events:
+      - httpApi:
+          path: /attend/{code}
+          method: get
+          # request: 
+          # parameters: 
+          #    paths: 
+          #      code: true
+          # cors:
+          #   origins:
+          #     - http://localhost:3000
+          #     - http://localhost:3001
+  
+  event_list:
+    handler: handler.list_event
+    events:
+      - httpApi:
+          path: /list/events
+          method: get
+          # cors:
+          #   origins:
+          #     - http://localhost:3000
+          #     - http://localhost:3001

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "serverless-offline": "^8.7.0",
+    "serverless-plugin-split-stacks": "^1.11.3"
+  },
+  "devDependencies": {
+    "serverless-python-requirements": "^5.4.0"
+  }
+}
